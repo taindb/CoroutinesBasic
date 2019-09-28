@@ -6,7 +6,7 @@ This topic intends to introduce you to how Kotlin Coroutines on Android solve tw
 
 Furthermore, you will know how Structured Concurrency helps you keep track of the work that's being done.
 
-View the topic's slides
+[View the topic's slides](https://drive.google.com/open?id=1YRlwAI8DtQOQNwEjTr8T6o5WZblJdals)
 
 The first example was created to demonstrate: ```Coroutines are like "light-weight" threads```
 ThreadAndCoroutinesFragment.kt
