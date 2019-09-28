@@ -14,7 +14,7 @@ class SampleListFragment : androidx.fragment.app.ListFragment() {
         const val TAG = "SampleListFragment"
         private const val THREAD_COROUTINES_LAUNCH = "1. Thread vs Coroutines"
 //        private const val SAMPLE_GET_PHOTOS = "2. Photo List"
-        private const val SAMPLE_GET_DOCUMENTS = "2. Document Show"
+        private const val SAMPLE_GET_DOCUMENTS = "2. Showing Document"
         private const val SAMPLE_LOAD_LOST_DOCUMENT = "3. Load Lost Documents"
         private const val SAMPLE_FETCH_TWO_DOCS = "4. Fetch two docs"
         private const val SAMPLE_FETCH_TWO_DOCS_WITH_SUPERVISOR = "5. Fetch two docs (Supervisor)"

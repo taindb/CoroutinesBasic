@@ -19,7 +19,7 @@ class DocViewModel : ViewModel() {
 
     val twoDocsSupervisorLiveData = MutableLiveData<String>()
 
-    var retrofit: Api = RetrofitClientInstance.getRetrofitInstance().create(Api::class.java)
+    var network: Api = RetrofitClientInstance.getRetrofitInstance().create(Api::class.java)
 
     private val coroutineExceptionHandler
             = CoroutineExceptionHandler { _, throwable ->
@@ -38,6 +38,12 @@ class DocViewModel : ViewModel() {
             docLiveData.postValue(doc)
         }
     }
+
+    private suspend fun get(url: String): String = withContext(Dispatchers.IO) {
+        val deferred = network.getDocsWithCoroutineAsync(url)
+        deferred.await()
+    }
+
 
     fun userNeed1000ODocs() {
         viewModelScope.launch(coroutineExceptionHandler) {
@@ -96,7 +102,6 @@ class DocViewModel : ViewModel() {
         }
     }
 
-
     private suspend fun fetch2Doc() {
         coroutineScope {
             val doc = get("https://developer.android.com")
@@ -104,14 +109,9 @@ class DocViewModel : ViewModel() {
         }
     }
 
-    private suspend fun get(url: String): String = withContext(Dispatchers.IO) {
-        delay(400)
-        val deferred = retrofit.getDocsWithCoroutineAsync(url)
-        deferred.await()
-    }
 
     private suspend fun getDeffered(url: String): Deferred<String> = withContext(Dispatchers.IO) {
-        retrofit.getDocsWithCoroutineAsync(url)
+        network.getDocsWithCoroutineAsync(url)
     }
 
 }
