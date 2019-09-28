@@ -1,7 +1,8 @@
-package com.taindb.couroutinetest
+package com.taindb.couroutinetest.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.taindb.couroutinetest.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +12,11 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentContainer, SampleListFragment(), SampleListFragment.TAG)
+                .add(
+                    R.id.fragmentContainer,
+                    SampleListFragment(),
+                    SampleListFragment.TAG
+                )
                 .commitNow()
         }
     }

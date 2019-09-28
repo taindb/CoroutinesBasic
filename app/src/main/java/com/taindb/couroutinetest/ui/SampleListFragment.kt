@@ -1,12 +1,8 @@
-package com.taindb.couroutinetest
+package com.taindb.couroutinetest.ui
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import com.taindb.couroutinetest.example.ThreadAndCoroutinesFragment
-import com.taindb.couroutinetest.example.viewmodel.FetchDocFragment
-import com.taindb.couroutinetest.example.viewmodel.FetchTwoDocsFragment
-import com.taindb.couroutinetest.example.viewmodel.FetchTwoDocsSupervisoFragment
-import com.taindb.couroutinetest.example.viewmodel.LostWorkFragment
+import com.taindb.couroutinetest.R
 
 class SampleListFragment : androidx.fragment.app.ListFragment() {
 
@@ -52,9 +48,12 @@ class SampleListFragment : androidx.fragment.app.ListFragment() {
                     FetchDocFragment(),
                     FetchDocFragment.toString()
                 )
-                SAMPLE_LOAD_LOST_DOCUMENT -> showFragment(LostWorkFragment(), LostWorkFragment.TAG)
-                SAMPLE_FETCH_TWO_DOCS -> showFragment(FetchTwoDocsFragment(), FetchTwoDocsFragment.TAG)
-                SAMPLE_FETCH_TWO_DOCS_WITH_SUPERVISOR -> showFragment(FetchTwoDocsSupervisoFragment(), FetchTwoDocsSupervisoFragment.TAG)
+                SAMPLE_LOAD_LOST_DOCUMENT -> showFragment(
+                    LostWorkFragment(), LostWorkFragment.TAG)
+                SAMPLE_FETCH_TWO_DOCS -> showFragment(
+                    FetchTwoDocsFragment(), FetchTwoDocsFragment.TAG)
+                SAMPLE_FETCH_TWO_DOCS_WITH_SUPERVISOR -> showFragment(
+                    FetchTwoDocsSupervisoFragment(), FetchTwoDocsSupervisoFragment.TAG)
 //                SAMPLE_EXCEPTION_HANDLER -> showFragment(
 //                    ExceptionHandlerFragment(),
 //                    ExceptionHandlerFragment.TAG

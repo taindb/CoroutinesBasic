@@ -1,4 +1,4 @@
-package com.taindb.couroutinetest.example
+package com.taindb.couroutinetest.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

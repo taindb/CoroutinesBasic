@@ -1,18 +1,18 @@
-package com.taindb.couroutinetest.example.viewmodel
+package com.taindb.couroutinetest.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.taindb.couroutinetest.R
+import com.taindb.couroutinetest.viewmodel.DocViewModel
 import kotlinx.android.synthetic.main.fragment_docs.*
 import kotlinx.android.synthetic.main.fragment_photos_main.loadingView
 
 
-class LostWorkFragment : androidx.fragment.app.Fragment() {
+class FetchDocFragment : androidx.fragment.app.Fragment() {
 
     companion object {
         const val TAG = "DocsFragment"
@@ -37,10 +37,10 @@ class LostWorkFragment : androidx.fragment.app.Fragment() {
         docViewModel = ViewModelProviders.of(this).get(DocViewModel::class.java)
         docsWv.settings.javaScriptEnabled = true
 
-        docViewModel.userNeed1000ODocs()
+        docViewModel.userNeedDoc()
         showLoading()
 
-        docViewModel.lostDocsLiveData.observe(this, Observer<String> {
+        docViewModel.docLiveData.observe(this, Observer<String> {
             showDocs(it)
         })
 
@@ -48,12 +48,19 @@ class LostWorkFragment : androidx.fragment.app.Fragment() {
             showError(it)
             hideLoading()
         })
+        var count = 0
+        showTimeBtn.setOnClickListener {
+            count++
+            messageTv.text = "Show message $count"
+        }
     }
 
 
     private fun showDocs(result: String) {
         docsWv.loadData(result, mimeType, encoding)
         hideLoading()
+        showTimeBtn.visibility = View.GONE
+        messageTv.visibility = View.GONE
     }
 
     private fun showError(error: String) {

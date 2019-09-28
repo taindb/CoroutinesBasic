@@ -1,6 +1,5 @@
 package com.taindb.couroutinetest.network
 
-import com.taindb.couroutinetest.RetroPhoto
 import io.reactivex.Single
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET

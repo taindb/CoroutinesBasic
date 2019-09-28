@@ -1,4 +1,4 @@
-package com.taindb.couroutinetest.example.viewmodel
+package com.taindb.couroutinetest.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
