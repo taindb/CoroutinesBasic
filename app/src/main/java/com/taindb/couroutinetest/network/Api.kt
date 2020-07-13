@@ -8,9 +8,6 @@ import retrofit2.http.Url
 
 interface Api {
 
-    @GET("/photos")
-    fun getAllPhotosAsync(): Deferred<List<RetroPhoto>>
-
     @GET
     fun getDocumentsWithRxJava(@Url url : String) :Single<String>
 
